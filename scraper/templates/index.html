@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Any Website Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://th.bing.com/th/id/R.274d77a86be0980773bf9b0a4b5800a9?rik=lgP39Xgr2pLgdQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fb%2f8%2f1%2f489068.jpg&ehk=WwsItfEC3pz%2bNxtdjzhzfUKX6UeC95Vjgzf%2bwKV4wSE%3d&risl=&pid=ImgRaw&r=0');
+            background-repeat: no-repeat;
+            background-size: calc();
+            background-position: center;
+            margin: 10;
+            
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fade-in 1s ease;
+        }
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-top: 0;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666666;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #cccccc;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            color: #555555;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #2f2181;
+            border: none;
+            color: #ffffff;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #31c9f8;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Website Scraper</h1>
+        <form method="post" action="{% url 'scrape' %}">
+            {% csrf_token %}
+            <label for="url">URL:</label>
+            <input type="text" name="url" id="url">
+            <br>
+            <label for="option">Option:</label>
+            <select name="option" id="option">
+                <option value="images">Images</option>
+                <option value="videos">Videos</option>
+                <option value="text">Text</option>
+            </select>
+            <br>
+            <input type="submit" value="Scrape">
+        </form>
+    </div>
+</body>
+</html>
